@@ -28,14 +28,14 @@ def predict():
     prediction = model.predict(img)
 
     predicted_index = np.argmax(prediction)
-    confidence = prediction[0][predicted_index] * 100
+    confidence = float(prediction[0][predicted_index] * 100) 
 
     top_3_indices = np.argsort(prediction)[0][-3:][::-1]
 
     top_3_breeds = [
         {
             'breed': classes[i],
-            'confidence': round(prediction[0][i] * 100, 2)
+            'confidence': float(round(prediction[0][i] * 100, 2))
         }
         for i in top_3_indices
     ]
@@ -45,6 +45,7 @@ def predict():
         'confidence': round(confidence, 2),
         'top_3': top_3_breeds
     })
+
 
 if __name__ == '__main__':
     app.run(debug=True)
