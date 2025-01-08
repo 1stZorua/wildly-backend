@@ -3,7 +3,6 @@ from keras._tf_keras.keras.models import load_model
 from utils import load_class_names, prepare_image
 import numpy as np
 
-# Configuration
 MODEL_PATH = 'models/dog_classifier_breed.keras'
 CLASSES_PATH = 'models/classes.json'
 
